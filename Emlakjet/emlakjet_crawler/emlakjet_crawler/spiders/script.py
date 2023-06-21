@@ -19,10 +19,10 @@ class EmlakjetSpider(scrapy.Spider):
         oda_sayisi = response.xpath("//div[@class='_1bVOdb' and text()='Oda Sayısı']/following-sibling::*/text()").get()
         bina_yas = response.xpath("//div[@class='_1bVOdb' and text()='Binanın Yaşı']/following-sibling::*/text()").get()
         bina_kat_sayisi = response.xpath("//div[@class='_1bVOdb' and text()='Binanın Kat Sayısı']/following-sibling::*/text()").get()
-        kullanım_durumu = response.xpath("//div[@class='_1bVOdb' and text()='Kullanım Durumu']/following-sibling::*/text()").get()
+        kullanim_durumu = response.xpath("//div[@class='_1bVOdb' and text()='Kullanım Durumu']/following-sibling::*/text()").get()
         krediye_uygunluk = response.xpath("//span[@class='GglL5e']/text()").get()
         kira_getirisi = response.xpath("//div[@class='_1bVOdb' and text()='Kira Getirisi']/following-sibling::*/text()").get()
-        eşya_durumu = response.xpath("//div[@class='_1bVOdb' and text()='Eşya Durumu']/following-sibling::*/text()").get()
+        esya_durumu = response.xpath("//div[@class='_1bVOdb' and text()='Eşya Durumu']/following-sibling::*/text()").get()
         fiyat_bilgisi = response.xpath('//*[@id="__next"]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/text()').get()
         ilan_link = response.request.url
 
@@ -31,10 +31,10 @@ class EmlakjetSpider(scrapy.Spider):
             'Oda Sayısı': oda_sayisi,
             'Binanın Yaşı': bina_yas,
             'Bina Kat Sayısı': bina_kat_sayisi,
-            'Kullanım Durumu': kullanım_durumu,
+            'Kullanım Durumu': kullanim_durumu,
             'Krediye Uygunluk': krediye_uygunluk,
             'Kira Getirisi': kira_getirisi,
-            'Eşya Durumu': eşya_durumu,
+            'Eşya Durumu': esya_durumu,
             'Fiyat Bilgisi': fiyat_bilgisi,
             'İlan Link': ilan_link,
         }
