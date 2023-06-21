@@ -20,7 +20,9 @@ class EmlakjetSpider(scrapy.Spider):
         bina_yas = response.xpath("//div[@class='_1bVOdb' and text()='Binanın Yaşı']/following-sibling::*/text()").get()
         bina_kat_sayisi = response.xpath("//div[@class='_1bVOdb' and text()='Binanın Kat Sayısı']/following-sibling::*/text()").get()
         kullanim_durumu = response.xpath("//div[@class='_1bVOdb' and text()='Kullanım Durumu']/following-sibling::*/text()").get()
-        krediye_uygunluk = response.xpath("//span[@class='GglL5e']/text()").get()
+        krediye_uygunluk = response.xpath("//div[@class='_1bVOdb' and text()='Krediye Uygunluk']/following-sibling::*/text()").get()
+        if krediye_uygunluk == None:
+            krediye_uygunluk = response.xpath("//div[@class='_1YVE8i']//text()").get()
         kira_getirisi = response.xpath("//div[@class='_1bVOdb' and text()='Kira Getirisi']/following-sibling::*/text()").get()
         esya_durumu = response.xpath("//div[@class='_1bVOdb' and text()='Eşya Durumu']/following-sibling::*/text()").get()
         fiyat_bilgisi = response.xpath('//*[@id="__next"]/div[3]/div[2]/div[1]/div[1]/div[2]/div[2]/text()').get()
